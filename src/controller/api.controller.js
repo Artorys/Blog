@@ -94,5 +94,16 @@ class ApiController
             }
         })
     }
+    static async ApiPosts()
+    {
+        return fetch(`${this.baseUrl}/posts?page=1`,
+        {
+            method : "GET",
+            headers : 
+            {
+                "Authorization" : `Bearer ${this.token}`
+            }
+        }).then((response)=> response.json())
+    }
 }
 export default ApiController

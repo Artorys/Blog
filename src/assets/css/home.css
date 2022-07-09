@@ -125,6 +125,7 @@
     gap: 20px;
     width:100%;
     max-width: 100%;
+    overflow-x: auto;
     height: 100%;
 }
 .box__profile-content > h2
@@ -133,6 +134,7 @@
 }
 .box__profile-content > p
 {
+    padding: 0px 0px 30px;
     font-size: calc(5px + 1vw);
     color: rgba(0, 0, 0, 0.708) ;
 }
@@ -158,6 +160,44 @@
 {
     color: rgba(0, 0, 0, 0.435);
 }
+.choices__box
+{
+    margin: 1rem auto;
+    display: flex;
+    width: max-content;
+    height: max-content;
+}
+.myPosts__box
+{
+    width: 100px;
+    height: 50px;
+    max-height: 100%;
+}
+.myPosts__button
+{
+    cursor: pointer;
+    font-family: var(--main-font);
+    font-weight: 700;
+    padding: 10px;
+    color: white;
+    background-color: rgba(var(--main-background-blue));
+}
+
+.allPosts__box
+{
+    width: 100px;
+    height: 50px;
+    max-height: 100%;
+}
+.allPosts__button
+{
+    cursor: pointer;
+    font-family: var(--main-font);
+    font-weight: 700;
+    padding: 10px;
+    color: white;
+    background-color: rgba(var(--main-background-blue));
+}
 @media screen and (min-width : 800px) 
 {
     .posts
@@ -181,5 +221,10 @@
         width: max-content;
         height: max-content;
         flex-flow: column;
+    }
+    .box__profile-content
+    {
+
+        overflow: hidden;
     }
 }

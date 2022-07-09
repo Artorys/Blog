@@ -4,6 +4,8 @@ import LoginController from "../controller/login.controller.js"
 import ApiController from "../controller/api.controller.js"
 import EditController from "../controller/edit.controller.js"
 import DeleteController from "../controller/delete.controller.js"
+import AllpostsController from "../controller/allposts.controller.js"
+import MyPostsController from "../controller/myposts.controller.js"
 
 class Home
 {
@@ -70,11 +72,27 @@ class Home
         textarea_post.id = "posts"
         textarea_post.placeholder = "Start posting now"
         
-        //na criacao de posts criar o card de posts
+        const choicesPosts = document.createElement("div")
+        choicesPosts.classList.add("choices__box")
+
+        const myPostsBox = document.createElement("div")
+        myPostsBox.classList.add("myPosts__box")
+
+        const myPostsButton = document.createElement("button")
+        
+        myPostsButton.classList.add("myPosts__button")
+        myPostsButton.innerText = "My posts"
+        
+        const allPostsBox = document.createElement("div")
+        allPostsBox.classList.add("allPosts__box")
+
+        const allPostsButton = document.createElement("button")
+        
+        allPostsButton.classList.add("allPosts__button")
+        allPostsButton.innerText = "All posts"
+
         const posts__box = document.createElement("div")
         posts__box.classList.add("posts__box")
-
-        //fim do card de posts
 
         header__box_profile.append(profile_img,profile_name)
         header__box_logout.append(button__logout)
@@ -85,13 +103,19 @@ class Home
         post__section.append(section__box)
         post__ul.append(post__section)
         post__main.appendChild(post__ul)
-        home.append(home__header,post__main,posts__box)
+        myPostsBox.append(myPostsButton)
+        allPostsBox.append(allPostsButton)
+        choicesPosts.append(myPostsBox,allPostsBox)
+
+        home.append(home__header,post__main,choicesPosts,posts__box)
 
         document.body.appendChild(home)
 
         Posts.eventPosting()
         this.checkImg(profile_img)
         this.listPostsUser()
+        AllpostsController.eventAllPosts()
+        MyPostsController.eventMyPosts()
     }
     static listPostsUser()
     {
@@ -174,6 +198,49 @@ class Home
 
         EditController.eventEdit()
         DeleteController.eventDelete()
+
+    }
+    static createPost(postObj)
+    {
+        const posts__box = document.querySelector(".posts__box")
+        
+        const {id : idPost,content,createdAt,user} = postObj
+        const {id : idUser,username,avatarUrl} = user
+        
+        const creationDate = createdAt.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/)
+        
+        
+        const posts  = document.createElement("li")
+        posts.classList.add("posts")
+
+        posts.id = idPost
+
+        const box__profile_img = document.createElement("div")
+        box__profile_img.classList.add("box__profile-img")
+
+        const profile_img = document.createElement("img")
+        profile_img.classList.add("profile-img")
+        profile_img.src = avatarUrl
+
+        const box__profile_content = document.createElement("div")
+        box__profile_content.classList.add("box__profile-content")
+
+        const profile_post_name = document.createElement("h2")
+        profile_post_name.classList.add("profile-name")
+
+        profile_post_name.innerText = username
+
+        const profile_post__posts = document.createElement("p")
+        profile_post__posts.classList.add("profile-post")
+
+        profile_post__posts.innerText = content
+
+        box__profile_content.append(profile_post_name,profile_post__posts)
+        box__profile_img.append(profile_img)
+        posts.append(box__profile_img,box__profile_content)
+        posts__box.append(posts)
+
+        this.checkImg(profile_img)
 
     }
     static logout()

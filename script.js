@@ -10,6 +10,7 @@ import UserRegister from "./src/model/userregister.js";
 import Message from "./src/views/message.js";
 import UserPost from "./src/model/userpost.js"
 import Edition from "./src/views/edition.js"
+import AllpostsController from "./src/controller/allposts.controller.js"
 
 window.addEventListener("beforeunload",function()
 {
