@@ -1,0 +1,54 @@
+.edition
+{
+    background-color: rgba(0, 0, 0, 0.233);
+    border-radius: 10px;
+    padding: 10px;
+    font-family: var(--main-font);
+    position:fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width:200px;
+    height: 180px;
+}
+.post__edit
+{
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.278);
+    border-radius: 10px;
+    text-align:center;
+    width: 100%;
+    height: 50%;
+}
+.post__button
+{
+    cursor: pointer;
+    font-weight: 700;
+    color: rgba(var(--main-background-white),1);
+    width: 50%;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgba(var(--main-background-blue),1);
+    padding: 10px;
+}
+.edition__close
+{
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    right: 4px;
+    background-image: url("/src/assets/svg/x.svg");
+    background-position: 100% 100%;
+    background-size: cover;
+}
+.edition__close:hover
+{
+    cursor: pointer;
+}

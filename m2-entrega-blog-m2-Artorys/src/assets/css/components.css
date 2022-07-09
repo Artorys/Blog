@@ -1,0 +1,68 @@
+/*fonts :
+    font-family: 'Montserrat', sans-serif;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-family: 'Roboto Slab', serif; 
+*/
+:root
+{
+    --main-font : 'Montserrat', sans-serif;
+    --main-background-blue :100, 149, 237;
+    --main-background-white : 243, 243, 243;
+    --main-background-yellow : 237, 188, 100;
+    --main-font-size : 1.125rem
+}
+body
+{
+    background-color: rgb(var(--main-background-white),1);
+    width: 100vw;
+    height: 100vh;
+}
+.register
+{
+    width: inherit;
+    height: inherit;
+    background-color: rgb(var(--main-background-white),1)
+}
+.home__header
+{
+    background-color: rgb(var(--main-background-blue),1);
+}
+.profile-img
+{
+    border-radius: 40px;
+    width: 50px;
+    max-width: 100%;
+    height:50px;   
+    max-height: 100%;
+}
+.profile-name
+{
+    color: white;
+    font-family: var(--main-font);
+    font-weight: 700;
+}
+.logout
+{
+    font-family: var(--main-font);
+    font-weight: 400;
+    color: white;
+    background-color: rgba(var(--main-background-yellow),1);
+}
+.textarea-post
+{
+    font-family: var(--main-font);
+}
+.posts
+{
+    background-color: white;
+}
+.profile-post
+{
+    font-family: var(--main-font);
+}
+.box__methods
+{
+    font-family: var(--main-font);
+}
